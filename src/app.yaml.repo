@@ -3,5 +3,12 @@ api_version: 1
 threadsafe: false
 
 handlers:
-- url: /js
-  static_dir: files/js
+- url: /admin.*
+  script: admin.app
+  login: admin
+  secure: always
+  
+- url: /.*
+  script: s3start.app
+  secure: always
+  
